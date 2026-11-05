@@ -4,28 +4,6 @@
             "Battle_FinishReturnHomeFlow"
         ]
     },
-    "RandomBattle_ClickStartBattle": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    287,
-                    1061,
-                    138,
-                    65
-                ],
-                "expected": [
-                    "對戰"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "Battle_Start"
-        ]
-    },
     "RandomBattle_RandomClick": {
         "recognition": {
             "type": "OCR",
@@ -50,149 +28,17 @@
             "RandomBattle_SelectStageFlow"
         ]
     },
-    "RandomBattle_ReEnter": {
-        "post_delay": 3500,
-        "next": [
-            "[JumpBack]Common_CloseClick",
-            "RandomBattle_ReEnterStable"
-        ]
-    },
-    "RandomBattle_ReEnterStable": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    39,
-                    1036,
-                    99,
-                    104
-                ],
-                "template": [
-                    "Battle/DeckIcon.png"
-                ]
-            }
-        },
-        "next": [
-            "RandomBattle_SelectStageFlow"
-        ]
-    },
-    "RandomBattle_SelectAuto": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    519,
-                    1197,
-                    60,
-                    39
-                ],
-                "expected": [
-                    "OFF"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "RandomBattle_SelectBonus": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    600,
-                    453,
-                    73,
-                    722
-                ],
-                "template": [
-                    "Battle/EventBattleBonus.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 500
-    },
-    "RandomBattle_SelectDeck": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": ""
-            }
-        },
-        "next": [
-            "RandomBattle_StartBattleFlow"
-        ]
-    },
-    "RandomBattle_SelectRedDot": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    653,
-                    460,
-                    48,
-                    595
-                ],
-                "template": [
-                    "Battle/BattleRedDot.png"
-                ],
-                "threshold": [
-                    0.85
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -116,
-                    118,
-                    0,
-                    0
-                ]
-            }
-        },
-        "post_delay": 500
-    },
     "RandomBattle_SelectStageFlow": {
+        "anchor": "BattleSelect",
         "timeout": 2500,
         "rate_limit": 200,
         "next": [
-            "RandomBattle_Selected",
-            "[JumpBack]RandomBattle_SelectBonus",
-            "[JumpBack]RandomBattle_SelectRedDot"
-        ],
-        "on_error": [
-            "RandomBattle_SwipeToLast"
+            "Random_Beginner_Fin",
+            "Random_Beginner",
+            "[JumpBack]Common_CloseClick"
         ]
     },
-    "RandomBattle_Selected": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    304,
-                    1061,
-                    104,
-                    59
-                ],
-                "expected": [
-                    "對戰"
-                ]
-            }
-        },
-        "next": [
-            "[JumpBack]RandomBattle_SelectAuto",
-            "RandomBattle_StartBattleFlow"
-        ]
-    },
-    "RandomBattle_Start": {
-        "anchor": {
-            "Battle_ContinueTarget": "RandomBattle_ReEnter"
-        },
+    "Random_Start": {
         "timeout": 2000,
         "next": [
             "RandomBattle_RandomClick"
@@ -201,49 +47,197 @@
             "RandomBattle_Abort"
         ]
     },
-    "RandomBattle_StartBattleFlow": {
+    "Random_middle_fin": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "Battle/AutoON.png"
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "2/2"
                 ]
             }
         },
-        "next": [
-            "RandomBattle_ClickStartBattle"
-        ]
-    },
-    "RandomBattle_SwipeToLast": {
         "action": {
             "type": "Swipe",
             "param": {
                 "begin": [
-                    8,
-                    1011,
-                    8,
-                    8
+                    538,
+                    1115,
+                    39,
+                    34
                 ],
                 "end": [
                     [
-                        13,
-                        484,
-                        11,
-                        11
+                        526,
+                        512,
+                        42,
+                        48
                     ]
                 ],
                 "duration": [
-                    500
+                    1500
                 ]
             }
         },
-        "repeat": 2,
         "next": [
-            "RandomBattle_Selected",
-            "[JumpBack]RandomBattle_SelectBonus"
-        ],
-        "on_error": [
+            "Random_adv_fin",
+            "Random_adv"
+        ]
+    },
+    "Random_Beginner": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/1"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_middle": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/2"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_adv": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/4"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_adv_fin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "4/4"
+                ]
+            }
+        },
+        "next": [
+            "Random_eli",
+            "Random_adv_fin_副本1"
+        ]
+    },
+    "Random_eli": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/5"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_adv_fin_副本1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "5/5"
+                ]
+            }
+        },
+        "next": [
             "RandomBattle_Abort"
+        ]
+    },
+    "Random_Beginner_Fin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "1/1"
+                ]
+            }
+        },
+        "next": [
+            "Random_middle_fin",
+            "Random_middle"
         ]
     }
 }

@@ -4,12 +4,24 @@
             "type": "StopTask"
         }
     },
-    "Battle_ClickAutoMode": {
-        "enabled": false,
+    "Battle_ClickStartBattle": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    264,
+                    1059,
+                    313,
+                    73
+                ],
+                "expected": [
+                    "對戰"
+                ]
+            }
+        },
         "action": {
             "type": "Click"
-        },
-        "post_delay": 500
+        }
     },
     "Battle_EndResultClick": {
         "recognition": {
@@ -73,27 +85,8 @@
     },
     "Battle_FinishFlow": {
         "next": [
-            "Battle_FinishReturnHomeFlow"
+            "[Anchor]BattleSelect"
         ]
-    },
-    "Battle_FinishReturnHomeFlow": {
-        "next": [
-            "[JumpBack]Common_HomeClick",
-            "[JumpBack]Navigation_NotStableWait",
-            "Battle_Finished",
-            "[JumpBack]Common_CloseClick",
-            "[JumpBack]Common_ClickOkMID"
-        ]
-    },
-    "Battle_Finished": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "Navigation_Stable"
-                ]
-            }
-        }
     },
     "Battle_MissionClearClick": {
         "recognition": {
@@ -118,8 +111,9 @@
         "timeout": 600000,
         "rate_limit": 3000,
         "next": [
-            "Battle_EndScreenVisible",
-            "[JumpBack]Battle_ClickAutoMode"
+            "Battle_AutoSelected",
+            "[JumpBack]Battle_SelectAuto",
+            "Battle_EndScreenVisible"
         ],
         "on_error": [
             "Battle_AbortUnverifiedEnd"
@@ -146,13 +140,50 @@
         },
         "post_delay": 600,
         "next": [
-            "[JumpBack]Common_ClickOkMID",
             "Battle_FinishFlow"
         ]
+    },
+    "Battle_SelectAuto": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    519,
+                    1197,
+                    60,
+                    39
+                ],
+                "expected": [
+                    "OFF"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "Battle_Start": {
         "next": [
             "Battle_MonitorFlow"
+        ]
+    },
+    "Battle_AutoSelected": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    519,
+                    1197,
+                    60,
+                    39
+                ],
+                "expected": [
+                    "ON"
+                ]
+            }
+        },
+        "next": [
+            "Battle_ClickStartBattle"
         ]
     }
 }
