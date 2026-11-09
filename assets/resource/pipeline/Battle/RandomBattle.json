@@ -1,9 +1,5 @@
 {
-    "RandomBattle_Abort": {
-        "next": [
-            "Battle_FinishReturnHomeFlow"
-        ]
-    },
+    "RandomBattle_Abort": {},
     "RandomBattle_RandomClick": {
         "recognition": {
             "type": "OCR",
@@ -38,13 +34,33 @@
             "[JumpBack]Common_CloseClick"
         ]
     },
-    "Random_Start": {
+    "RandomBattle_Start": {
         "timeout": 2000,
         "next": [
             "RandomBattle_RandomClick"
         ],
         "on_error": [
             "RandomBattle_Abort"
+        ]
+    },
+    "Random_Beginner_Fin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "1/1"
+                ]
+            }
+        },
+        "next": [
+            "Random_middle_fin",
+            "Random_middle"
         ]
     },
     "Random_middle_fin": {
@@ -218,26 +234,6 @@
         },
         "next": [
             "RandomBattle_Abort"
-        ]
-    },
-    "Random_Beginner_Fin": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "1/1"
-                ]
-            }
-        },
-        "next": [
-            "Random_middle_fin",
-            "Random_middle"
         ]
     }
 }

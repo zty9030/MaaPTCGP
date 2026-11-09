@@ -1,0 +1,24 @@
+{
+    "task": [
+        {
+            "name": "randombattle",
+            "label": "randombattle",
+            "description": "randombattle",
+            "entry": "RandomBattle_Start",
+            "controller": [
+                "ADB"
+            ],
+            "resource": [
+                "Default",
+                "Dev"
+            ]
+            // "group": [
+            //     "DailyRoutine"
+            // ],
+            // "option": [
+            //     "BattleMode",
+            //     "BattleContinue"
+            // ]
+        }
+    ]
+}

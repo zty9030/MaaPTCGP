@@ -4,6 +4,25 @@
             "type": "StopTask"
         }
     },
+    "Battle_AutoSelected": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    519,
+                    1197,
+                    60,
+                    39
+                ],
+                "expected": [
+                    "ON"
+                ]
+            }
+        },
+        "next": [
+            "Battle_ClickStartBattle"
+        ]
+    },
     "Battle_ClickStartBattle": {
         "recognition": {
             "type": "OCR",
@@ -21,7 +40,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "Battle_MonitorFlow"
+        ]
     },
     "Battle_EndResultClick": {
         "recognition": {
@@ -160,30 +182,13 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "Battle_Start": {
         "next": [
             "Battle_MonitorFlow"
         ]
     },
-    "Battle_AutoSelected": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    519,
-                    1197,
-                    60,
-                    39
-                ],
-                "expected": [
-                    "ON"
-                ]
-            }
-        },
-        "next": [
-            "Battle_ClickStartBattle"
-        ]
-    }
+    "Battle_FinishReturnHomeFlow": {}
 }

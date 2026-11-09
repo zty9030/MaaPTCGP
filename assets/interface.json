@@ -80,6 +80,7 @@
         "tasks/DailyMissions.json",
         "tasks/preset/Utility.json",
         "tasks/SwipeUp.json",
-        "tasks/MissionRedDotCleaner.json"
+        "tasks/MissionRedDotCleaner.json",
+        "tasks/t_RandomBattle.json"
     ]
 }

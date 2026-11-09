@@ -499,3 +499,5 @@ memories/
 handoff/
 handoffs/
 *mpe*
+cache/
+maafw/
