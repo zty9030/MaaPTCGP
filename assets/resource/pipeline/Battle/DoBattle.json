@@ -74,7 +74,8 @@
         }
     },
     "Battle_EndResultFlow": {
-        "rate_limit": 200,
+        "timeout": 120000,
+        "rate_limit": 1000,
         "next": [
             "[JumpBack]Battle_EndResultClick",
             "[JumpBack]Battle_MissionClearClick",
@@ -111,6 +112,7 @@
             "[Anchor]BattleSelect"
         ]
     },
+    "Battle_FinishReturnHomeFlow": {},
     "Battle_MissionClearClick": {
         "recognition": {
             "type": "OCR",
@@ -131,7 +133,6 @@
         }
     },
     "Battle_MonitorFlow": {
-        "anchor": "battle_status",
         "timeout": 600000,
         "rate_limit": 3000,
         "next": [
@@ -162,7 +163,7 @@
                 ]
             }
         },
-        "post_delay": 600,
+        "post_delay": 10000,
         "next": [
             "Battle_FinishFlow"
         ]
@@ -188,9 +189,9 @@
         "post_delay": 4000
     },
     "Battle_Start": {
+        "anchor": "battle_status",
         "next": [
             "Battle_MonitorFlow"
         ]
-    },
-    "Battle_FinishReturnHomeFlow": {}
+    }
 }
