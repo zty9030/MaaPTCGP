@@ -43,6 +43,29 @@
             "RandomBattle_Abort"
         ]
     },
+    "Random_Beginner": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/1"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
     "Random_Beginner_Fin": {
         "recognition": {
             "type": "OCR",
@@ -61,6 +84,114 @@
         "next": [
             "Random_middle_fin",
             "Random_middle"
+        ]
+    },
+    "Random_adv": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/4"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_adv_fin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "4/4"
+                ]
+            }
+        },
+        "next": [
+            "Random_eli_fin",
+            "Random_eli"
+        ]
+    },
+    "Random_eli_fin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "5/5"
+                ]
+            }
+        },
+        "next": [
+            "RandomBattle_Abort"
+        ]
+    },
+    "Random_eli": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/5"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
+        ]
+    },
+    "Random_middle": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    531,
+                    290,
+                    485
+                ],
+                "expected": [
+                    "\\d/2"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "Battle_Start"
         ]
     },
     "Random_middle_fin": {
@@ -103,137 +234,6 @@
         "next": [
             "Random_adv_fin",
             "Random_adv"
-        ]
-    },
-    "Random_Beginner": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "\\d/1"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 10000,
-        "next": [
-            "Battle_Start"
-        ]
-    },
-    "Random_middle": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "\\d/2"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 10000,
-        "next": [
-            "Battle_Start"
-        ]
-    },
-    "Random_adv": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "\\d/4"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 10000,
-        "next": [
-            "Battle_Start"
-        ]
-    },
-    "Random_adv_fin": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "4/4"
-                ]
-            }
-        },
-        "next": [
-            "Random_eli",
-            "Random_adv_fin_副本1"
-        ]
-    },
-    "Random_eli": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "\\d/5"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 10000,
-        "next": [
-            "Battle_Start"
-        ]
-    },
-    "Random_adv_fin_副本1": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    230,
-                    531,
-                    290,
-                    485
-                ],
-                "expected": [
-                    "5/5"
-                ]
-            }
-        },
-        "next": [
-            "RandomBattle_Abort"
         ]
     }
 }

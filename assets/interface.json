@@ -46,15 +46,15 @@
         "zh_tw": "locales/interface/zh_tw.json",
         "en_us": "locales/interface/en_us.json"
     },
-    "pretask": {
-        "name": "PrepareMacOSAdb",
-        "label": "$pretask.PrepareMacOSAdb.label",
-        "description": "$pretask.PrepareMacOSAdb.description",
-        "exec": "./bin/maa-adb-autoconnect",
-        "controller": [
-            "ADB"
-        ]
-    },
+    // "pretask": {
+    //     "name": "PrepareMacOSAdb",
+    //     "label": "$pretask.PrepareMacOSAdb.label",
+    //     "description": "$pretask.PrepareMacOSAdb.description",
+    //     "exec": "./bin/maa-adb-autoconnect",
+    //     "controller": [
+    //         "ADB"
+    //     ]
+    // },
     "task": [],
     "group": [
         {

@@ -109,7 +109,7 @@
     },
     "Battle_FinishFlow": {
         "next": [
-            "[Anchor]BattleSelect"
+            "[Anchor]battle_select"
         ]
     },
     "Battle_FinishReturnHomeFlow": {},
@@ -133,7 +133,7 @@
         }
     },
     "Battle_MonitorFlow": {
-        "timeout": 600000,
+        "timeout": 1200000,
         "rate_limit": 3000,
         "next": [
             "Battle_AutoSelected",
